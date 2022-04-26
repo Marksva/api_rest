@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>teste</title>
+    <title>teste do servidor</title>
 </head>
 
 <body>
@@ -20,7 +20,8 @@
         var b2 = document.getElementById('btn2')
         var b3 = document.getElementById('btn3')
         var b4 = document.getElementById('btn4')
-
+        
+        //GET
         b1.addEventListener('click', () => {
             axios.get('http://localhost:4000/clients')
                 .then((res) => {
@@ -28,13 +29,22 @@
                     console.log(res.data);
                 })
                 .catch((e) => {
-                    console.log("erro", e
-                    );
+                    console.log("erro", e);
                 });
-        })
+        });
 
+        // POST
         b2.addEventListener('click', () => {
-            axios.post('http://localhost:4000/clients')
+            let bodyFormData = new URLSearchParams();
+            bodyFormData.append('id', "cli03");
+            bodyFormData.append('nome', "Mark Anthony");
+            bodyFormData.append('email', "mark@mark.com");
+            axios('http://localhost:4000/clients', {
+                method: "post",
+                url: "http://localhost:4000/clients",
+                data: bodyFormData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            })
                 .then((res) => {
                     console.log("retorno do servidor");
                     console.log(res.data);
@@ -43,10 +53,20 @@
                     console.log("erro", e
                     );
                 });
-        })
+        });
 
+        // PUT
         b3.addEventListener('click', () => {
-            axios.put('http://localhost:4000/clients')
+            let bodyFormData = new URLSearchParams();
+            bodyFormData.append('id', "cli03");
+            bodyFormData.append('nome', "Markin da zn");
+            bodyFormData.append('email', "mark@mark.com");
+            axios('http://localhost:4000/clients', {
+                method: "put",
+                url: "http://localhost:4000/clients",
+                data: bodyFormData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            })
                 .then((res) => {
                     console.log("retorno do servidor");
                     console.log(res.data);
@@ -55,10 +75,18 @@
                     console.log("erro", e
                     );
                 });
-        })
+        });
 
+        // DELETE
         b4.addEventListener('click', () => {
-            axios.delete('http://localhost:4000/clients')
+            let bodyFormData = new URLSearchParams();
+            bodyFormData.append('id', "joao");
+            axios('http://localhost:4000/clients', {
+                method: "delete",
+                url: "http://localhost:4000/clients",
+                data: bodyFormData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            })
                 .then((res) => {
                     console.log("retorno do servidor");
                     console.log(res.data);
@@ -67,7 +95,7 @@
                     console.log("erro", e
                     );
                 });
-        })
+        });
 
     </script>
 

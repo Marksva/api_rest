@@ -1,22 +1,47 @@
- const controller = { 
+import db from "../database/db.js"
 
-    list(req, res) {
+const controller = {
+
+    get(req, res) {
         console.log("chegou uma requisição na rota clients GET");
-        res.status(200).json({algo :"oi GET"});
+        res.status(200).json(db.data.clients);
     },
-    add(req, res) {
+
+    post(req, res) {
         console.log("chegou uma requisição na rota clients POST");
-        res.status(200).json({algo :"oi POST"});
+        console.log("oque tem no body:", req.body);
+        db.data.clients[req.body.id] = {
+            id: req.body.id,
+            nome: req.body.nome,
+            email: req.body.email
+        }
+        db.write();
+        res.status(200).json({ algo: "oi POST" });
     },
-    update(req, res) {
+
+    put(req, res) {
         console.log("chegou uma requisição na rota clients PUT");
-        res.status(200).json({algo :"oi PUT"});
+        res.status(200).json({ algo: "oi PUT" });
+        console.log("oque chegou no body:", req.body);
+        db.data.clients[req.body.id] ={
+            id: req.body.id,
+            nome: req.body.nome,
+            email: req.body.email
+        }
+        db.write();
+        res.status(200).json(db.data.clients);
     },
-    remove(req, res) {
+
+    delete(req, res) {
         console.log("chegou uma requisição na rota clients DELETE");
-        res.status(200).json({algo :"oi DELETE"});
+        res.status(200).json({ algo: "oi DELETE" });
+        console.log("oque chegou no body:", req.body);
+        delete db.data.clients[req.body.id];
+        db.write();
+        res.status(200).json(db.data.clients);
     },
+    
 
- }
+}
 
- export default controller;
+export default controller;
