@@ -5,7 +5,7 @@ var b2 = document.getElementById('btn2')
 var b3 = document.getElementById('btn3')
 var b4 = document.getElementById('btn4')
 
-//GET
+//configurando button de get
 b1.addEventListener('click', () => {
     api.get('clients').then((res) => {
         console.log("retorno do servidor");
@@ -15,7 +15,7 @@ b1.addEventListener('click', () => {
     });
 });
 
-// POST
+// cofigurando button post
 b2.addEventListener('click', () => {
     let dados = {
         id: "cli03",
@@ -31,7 +31,7 @@ b2.addEventListener('click', () => {
     });
 });
 
-// PUT
+// configurando button put
 b3.addEventListener('click', () => {
     let dados = {
         id: "cli04",
@@ -47,7 +47,7 @@ b3.addEventListener('click', () => {
     });
 });
 
-// DELETE
+// configurando button delete
 b4.addEventListener('click', () => {
     api.delete("clients", "cli04").then((res) => {
         console.log("retorno do serivdor");
