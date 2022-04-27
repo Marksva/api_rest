@@ -6,17 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>teste do servidor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+    <title>server test</title>
 </head>
 
 <body>
-    <h1>meu teste do server</h1>
-    <button id="btn1">GET</button>
-    <button id="btn2">POST</button>
-    <button id="btn3">PUT</button>
-    <button id="btn4">DELETE</button>
-    <script src="./main.js" type="module"></script>
+    <div id="meuApp">
+        
+        <topo></topo>
 
+        <div class="grid grid-cols-10">
+            <div class="col-span-1 border bg-gray-100 p-1">
+                <sidemenu></sidemenu>
+            </div>
+            
+            <div class="col-span-9 p-1">
+                <painel></painel>
+                <painelprodutos></painelprodutos>
+            </div>
+        </div>
+    
+    </div>
+    <script src="./main.js" type="module"></script>
 </body>
 
 </html>

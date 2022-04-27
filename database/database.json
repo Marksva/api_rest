@@ -14,6 +14,16 @@
       "id": "cli03",
       "nome": "Mark Anthony",
       "email": "mark@mark.com"
+    },
+    "cli05": {
+      "id": "cli05",
+      "nome": "Paola Oliveira",
+      "email": "paola@paola.com"
+    },
+    "cli04": {
+      "id": "cli04",
+      "nome": "abreu abrião",
+      "email": "abreu@abreu"
     }
   }
 }
